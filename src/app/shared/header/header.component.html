@@ -1,0 +1,18 @@
+<header class="d-flex bg-dark flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a (click)="navHome()" class="d-flex align-items-center col-md-3 mb-1 mb-md-0 text-dark text-decoration-none">
+    <h2 class="text-white">Choneros Music</h2>
+    </a>
+
+    <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a class="nav-link px-2 text-white" (click)="navGuitar()">Guitarras</a></li>
+        <li><a class="nav-link px-2 text-white" (click)="navAmplis()">Amplificadores</a></li>
+        <li><a class="nav-link px-2 text-white" (click)="navBajos()">Bajos</a></li>
+        <li><a class="nav-link px-2 text-white" (click)="navMicros()">Micrófonos</a></li>
+        <li><a class="nav-link px-2 text-secondary" (click)="navPreguntas()">Preguntas</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+        <button mat-raised-button (click)="abrirLogin()" color="primary">Login</button>
+        <button mat-raised-button (click)="abrirCarrito()" color="warn">Carrito</button>
+    </div>
+</header>

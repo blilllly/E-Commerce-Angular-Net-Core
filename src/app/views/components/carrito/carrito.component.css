@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+}
+
+.card-carrito {
+    width: 1000px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 15pt;
+}
+
+h3 {
+    margin: 0;
+    font-size: 13pt;
+}
+
+.mini {
+    transform: scale(0.75);
+}
+
+input {
+    width: 45px;
+    height: 42px;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.centrar {
+    align-content: center;
+}

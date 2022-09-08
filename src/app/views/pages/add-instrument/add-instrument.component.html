@@ -1,0 +1,44 @@
+<form [formGroup]="instrument" class="editar row g-3">
+
+    <select formControlName="tipo" class="form-select">
+        <option value="guitarra">Guitarra</option>
+        <option value="amplificador">Amplificador</option>
+        <option value="bajo">Bajo</option>
+        <option value="microfono">Micrófono</option>
+    </select>
+
+    <div class="input-group">
+        <input type="file" (change)="rutaTemp($event)" class="form-control" formControlName="rutaImg" accept="image/png, image/jpeg, image/jpg">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">Id</span>
+        <input type="number" class="form-control" formControlName="id" placeholder="0">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">Marca</span>
+        <input type="text" class="form-control" formControlName="marca" placeholder="Marca">
+        <span class="input-group-text">Nombre</span>
+        <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">Descripción</span>
+        <textarea class="form-control" formControlName="descripcion" rows="3" maxlength="150"></textarea>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-text">Precio</span>
+        <span class="input-group-text">$</span>
+        <input type="number" formControlName="precio" class="form-control" placeholder="999" min="1">
+        <span class="input-group-text">.99</span>
+    </div>
+
+    <div class="clo-12">
+        <button (click)="anadirInstrument()" class="btn btn-primary" [disabled]="!instrument.valid">Añadir</button>
+    </div>
+
+</form>
+
+<img src="" alt="" id="img1">

@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div>
+        Este apartado es para realizar preguntas y puedan ser contestadas por otra persona.
+        <hr>
+        <button (click)="newPreg()" class="btn btn-primary">Nueva Pregunta</button>
+    </div>
+
+    <div *ngFor="let item of pregArray" class="card">
+        <h5 class="card-header">{{ item.nombre }}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ item.titulo }}</h5>
+          <p class="card-text">{{ item.contenido }}</p>
+          <a [routerLink]="[ '/respInput', item.id ]" class="btn btn-primary">Responder</a>
+        </div>
+
+        <div *ngFor="let resp of respArray" class="card col-11" align="right">
+            <div *ngIf="item.id === resp.idPre">
+                <h5 class="card-header">{{ resp.nombre }}</h5>
+                <div class="card-body">
+                <h5 class="card-title">{{ resp.titulo }}</h5>
+                <p class="card-text">{{ resp.contenido }}</p>
+            </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
