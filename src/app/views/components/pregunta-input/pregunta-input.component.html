@@ -1,13 +1,11 @@
 <form [formGroup]="preg" class="editar row g-3">
 
-    <!-- <div visible="" class="input-group">
-        <span class="input-group-text">Id</span>
-        <input formControlName="id" type="number" class="form-control" placeholder="0">
-    </div> -->
-
     <div class="input-group">
         <span class="input-group-text">Nombre</span>
-        <input formControlName="usuarioPregunta" type="text" class="form-control" placeholder="Nombre">
+        <input 
+            formControlName="usuarioPregunta"
+            type="text"
+            class="form-control">
     </div>
 
     <div class="input-group">
@@ -21,7 +19,7 @@
     </div>
 
     <div align="center" class="clo-12">
-        <button type="button" (click)="guardar()" class="btn btn-primary" [disabled]="!preg.valid">Añadir</button>
+        <button type="button" (click)="guardar()" class="btn btn-primary" [disabled]="!preg.valid">{{ (pregunta.id) ? 'Editar' : 'Añadir' }}</button>
     </div>
 
 </form>

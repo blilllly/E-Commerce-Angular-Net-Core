@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Preguntas, Respuestas } from '../interfaces/instruments.interface';
 import { environment } from '../../../environments/environment';
@@ -13,16 +12,11 @@ export class QaService {
   private baseUrl: string = environment.baseUrl;
 
   constructor(
-    private _snackBar: MatSnackBar,
     private http: HttpClient
   ) { }
 
-  snackError() {
-    this._snackBar.open( 'Error: El id ya existe', undefined, { duration: 2500 } )
-  }
-
-  snackSuccess() {
-    this._snackBar.open( 'La pregunta se añadió correctamente', undefined, { duration: 2500 } )
+  getPreguntaXId( id: string ): Observable<Preguntas> {
+    return this.http.get<Preguntas>(`${this.baseUrl}/Preguntas/${id}`)
   }
 
   getPreguntas(): Observable<Preguntas[]> {
