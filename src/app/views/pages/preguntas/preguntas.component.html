@@ -7,19 +7,20 @@
     </div>
 
     <div *ngFor="let item of pregArray" class="card">
-        <h5 class="card-header">{{ item.nombre }}</h5>
+        <h5 class="card-header">{{ item.usuarioPregunta }}</h5>
         <div class="card-body">
-          <h5 class="card-title">{{ item.titulo }}</h5>
-          <p class="card-text">{{ item.contenido }}</p>
+          <h5 class="card-title">{{ item.tituloPregunta }}</h5>
+          <p class="card-text">{{ item.textoPregunta }}</p>
           <a [routerLink]="[ '/respInput', item.id ]" class="btn btn-primary">Responder</a>
+          <a [routerLink]="[ '/editarPreg', item.id ]" class="btn btn-primary">Editar</a>
         </div>
 
         <div *ngFor="let resp of respArray" class="card col-11" align="right">
-            <div *ngIf="item.id === resp.idPre">
-                <h5 class="card-header">{{ resp.nombre }}</h5>
+            <div *ngIf="item.id === resp.preguntaId">
+                <h5 class="card-header">{{ resp.usuarioRespuesta }}</h5>
                 <div class="card-body">
-                <h5 class="card-title">{{ resp.titulo }}</h5>
-                <p class="card-text">{{ resp.contenido }}</p>
+                <h5 class="card-title">{{ resp.tituloRespuesta}}</h5>
+                <p class="card-text">{{ resp.textoRespuesta }}</p>
             </div>
 
             </div>

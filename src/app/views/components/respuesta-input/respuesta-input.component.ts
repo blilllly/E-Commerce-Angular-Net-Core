@@ -26,7 +26,7 @@ export class RespuestaInputComponent implements OnInit {
   })
 
   addResp() {
-    this.qaService.addResp(this.resp.value as Respuestas)
+    // this.qaService.addResp(this.resp.value as Respuestas)
     this.router.navigate([ '/preguntas' ])
   }
 }

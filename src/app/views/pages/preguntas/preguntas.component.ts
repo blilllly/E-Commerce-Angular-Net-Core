@@ -10,14 +10,22 @@ import { QaService } from '../../services/qa.service';
 })
 export class PreguntasComponent implements OnInit {
 
+  public pregArray: Preguntas[] = [];
+  public respArray: Respuestas[] = [];
+
   constructor(private router: Router, private qaService: QaService) { }
 
   ngOnInit(): void {
+    this.qaService.getPreguntas()
+      .subscribe( preguntas => {
+        this.pregArray = preguntas
+      })
+
+    this.qaService.getRespuestas()
+      .subscribe( respuestas => {
+        this.respArray = respuestas
+      })
   }
-
-  public pregArray: Preguntas[] = this.qaService.preguntas;
-
-  public respArray: Respuestas[] = this.qaService.respuestas;
 
   newPreg() {
     this.router.navigate([ '/pregInput' ])

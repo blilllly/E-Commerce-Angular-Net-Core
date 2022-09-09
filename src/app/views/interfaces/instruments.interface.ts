@@ -11,18 +11,34 @@ export interface Instrument {
 }
 
 export interface Preguntas {
-    id:             number;
-    nombre:         string;
-    titulo:         string;
-    contenido:      string;
+    id?:              number;
+    respuestas?:      Respuestas[];
+    textoPregunta:   string;
+    tituloPregunta:  string;
+    usuarioPregunta: string;
 }
 
 export interface Respuestas {
-    idPre:          number;
-    nombre:         string;
-    titulo:         string;
-    contenido:      string;
+    id:               number;
+    preguntaId:       number;
+    textoRespuesta:   string;
+    tituloRespuesta:  string;
+    usuarioRespuesta: string;
 }
+
+// export interface Preguntas {
+//     id:             number;
+//     nombre:         string;
+//     titulo:         string;
+//     contenido:      string;
+// }
+
+// export interface Respuestas {
+//     idPre:          number;
+//     nombre:         string;
+//     titulo:         string;
+//     contenido:      string;
+// }
 
 // export interface Carrito {
 //     instrument:     Instrument;

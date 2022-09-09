@@ -51,6 +51,10 @@ const routes: Routes = [
     component: PreguntaInputComponent
   },
   {
+    path: 'editarPreg/:id',
+    component: PreguntaInputComponent
+  },
+  {
     path: 'respInput/:id',
     component: RespuestaInputComponent
   },
