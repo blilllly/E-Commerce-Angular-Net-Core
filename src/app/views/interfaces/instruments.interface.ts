@@ -19,7 +19,7 @@ export interface Preguntas {
 }
 
 export interface Respuestas {
-    id:               number;
+    id?:               number;
     preguntaId:       number;
     textoRespuesta:   string;
     tituloRespuesta:  string;

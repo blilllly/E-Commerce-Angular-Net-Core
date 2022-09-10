@@ -21,7 +21,12 @@
                 <div class="card-body">
                 <h5 class="card-title">{{ resp.tituloRespuesta}}</h5>
                 <p class="card-text">{{ resp.textoRespuesta }}</p>
-            </div>
+                <button
+                    class="btn btn-warning"
+                    (click)="borrar(resp.id!)">
+                    Eliminar
+                </button>
+                </div>
 
             </div>
             

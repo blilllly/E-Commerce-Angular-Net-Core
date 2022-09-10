@@ -1,23 +1,23 @@
 <form [formGroup]="resp" class="editar row g-3">
 
     <div class="input-group">
-        <span class="input-group-text">IdPreg</span>
-        <input formControlName="idPre" type="number" class="form-control" readonly>
+        <span class="input-group-text">Pregunta</span>
+        <input formControlName="pregunta" type="text" class="form-control" readonly>
     </div>
 
     <div class="input-group">
         <span class="input-group-text">Nombre</span>
-        <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
+        <input formControlName="usuarioRespuesta" type="text" class="form-control" placeholder="Nombre">
     </div>
 
     <div class="input-group">
         <span class="input-group-text">Título</span>
-        <input formControlName="titulo" type="text" class="form-control" placeholder="Título">
+        <input formControlName="tituloRespuesta" type="text" class="form-control" placeholder="Título">
     </div>
 
     <div class="input-group">
         <span class="input-group-text">Contenido</span>
-        <textarea formControlName="contenido" class="form-control"  rows="3" maxlength="150"></textarea>
+        <textarea formControlName="textoRespuesta" class="form-control"  rows="3" maxlength="150"></textarea>
     </div>
 
     <div align="center" class="clo-12">

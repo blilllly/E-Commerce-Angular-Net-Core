@@ -24,7 +24,7 @@ export class QaService {
   }
   
   postPregunta( pregunta: Preguntas ): Observable<Preguntas> {
-    return this.http.post<Preguntas>( `${this.baseUrl}/Preguntas/`, pregunta )
+    return this.http.post<Preguntas>( `${this.baseUrl}/Preguntas`, pregunta )
   }
 
   putPregunta( pregunta: Preguntas ): Observable<Preguntas> {
@@ -39,4 +39,20 @@ export class QaService {
     return this.http.get<Respuestas[]>( `${this.baseUrl}/Respuesta` )
   }
 
+  getRespuestaXId( id: number ): Observable<Respuestas> {
+    return this.http.get<Respuestas>(`${this.baseUrl}/Respuesta/${id}`)
+  }
+
+  postRespuesta( respuesta: Respuestas ): Observable<Respuestas> {
+    return this.http.post<Respuestas>(`${this.baseUrl}/Respuesta`,respuesta)
+  }
+
+  putRespuesta( respuesta: Respuestas): Observable<Respuestas> {
+    return this.http.put<Respuestas>(`${this.baseUrl}/Respuesta/${respuesta.id}`, respuesta)
+  }
+
+  deleteRespuesta( id: number ): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/Respuesta/${id}`)
+  }
+  
 }
