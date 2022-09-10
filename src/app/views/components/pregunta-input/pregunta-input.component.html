@@ -20,6 +20,11 @@
 
     <div align="center" class="clo-12">
         <button type="button" (click)="guardar()" class="btn btn-primary" [disabled]="!preg.valid">{{ (pregunta.id) ? 'Editar' : 'Añadir' }}</button>
+        <button *ngIf="pregunta.id"
+            class="btn btn-warning"
+            (click)="borrar()">
+            Eliminar
+        </button>
     </div>
 
 </form>

@@ -13,7 +13,10 @@ export class PreguntasComponent implements OnInit {
   public pregArray: Preguntas[] = [];
   public respArray: Respuestas[] = [];
 
-  constructor(private router: Router, private qaService: QaService) { }
+  constructor(
+    private router: Router,
+    private qaService: QaService
+  ) { }
 
   ngOnInit(): void {
     this.qaService.getPreguntas()

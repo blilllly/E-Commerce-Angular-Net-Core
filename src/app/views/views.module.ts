@@ -15,6 +15,8 @@ import { PreguntasComponent } from './pages/preguntas/preguntas.component';
 import { PreguntaInputComponent } from './components/pregunta-input/pregunta-input.component';
 import { RespuestaInputComponent } from './components/respuesta-input/respuesta-input.component';
 import { RouterModule } from '@angular/router';
+import { ConfirmarComponent } from './components/confirmar/confirmar.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -31,12 +33,14 @@ import { RouterModule } from '@angular/router';
     MicrosComponent,
     PreguntasComponent,
     PreguntaInputComponent,
-    RespuestaInputComponent
+    RespuestaInputComponent,
+    ConfirmarComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ]
 })
 export class ViewsModule { }

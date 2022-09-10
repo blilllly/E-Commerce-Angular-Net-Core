@@ -4,7 +4,9 @@ import { QaService } from '../../services/qa.service';
 import { Preguntas } from '../../interfaces/instruments.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { switchMap } from 'rxjs';
+import { of, switchMap } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmarComponent } from '../confirmar/confirmar.component';
 
 @Component({
   selector: 'app-pregunta-input',
@@ -24,7 +26,8 @@ export class PreguntaInputComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -67,10 +70,25 @@ export class PreguntaInputComponent implements OnInit {
       this.qaService.postPregunta( this.pregunta )
         .subscribe( pre => {
           this.router.navigate([ '/preguntas' ])
-          this.snackSuccess(` se añadió correctamente.`)
+          this.snackSuccess('se añadió correctamente.')
         })
     }
-    console.log(this.pregunta)
+  }
+
+  borrar() {
+
+    this.dialog.open(ConfirmarComponent, {
+      width: '250px',
+      data: this.pregunta.tituloPregunta
+    }).afterClosed().pipe(
+      switchMap( bol => bol ? this.qaService.deletePregunta(this.pregunta.id!) : of(false) )
+    )
+    .subscribe( ok => {
+      if( ok == null ) {
+        this.router.navigate([ '/preguntas' ]);
+        this.snackSuccess('Se elminó correctamente.');
+      }
+    })
   }
 
   snackSuccess( msj: string ) {

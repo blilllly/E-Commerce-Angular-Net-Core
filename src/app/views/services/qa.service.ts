@@ -15,12 +15,12 @@ export class QaService {
     private http: HttpClient
   ) { }
 
-  getPreguntaXId( id: string ): Observable<Preguntas> {
-    return this.http.get<Preguntas>(`${this.baseUrl}/Preguntas/${id}`)
-  }
-
   getPreguntas(): Observable<Preguntas[]> {
     return this.http.get<Preguntas[]>( `${this.baseUrl}/Preguntas` )
+  }
+
+  getPreguntaXId( id: string ): Observable<Preguntas> {
+    return this.http.get<Preguntas>(`${this.baseUrl}/Preguntas/${id}`)
   }
   
   postPregunta( pregunta: Preguntas ): Observable<Preguntas> {
@@ -29,6 +29,10 @@ export class QaService {
 
   putPregunta( pregunta: Preguntas ): Observable<Preguntas> {
     return this.http.put<Preguntas>( `${this.baseUrl}/Preguntas/${pregunta.id}`, pregunta )
+  }
+
+  deletePregunta( id: number ): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/Preguntas/${id}`)
   }
 
   getRespuestas(): Observable<Respuestas[]>{
