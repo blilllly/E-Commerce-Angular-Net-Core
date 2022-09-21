@@ -1,18 +1,27 @@
+// export interface Instrument {
+//     id:             number;
+//     tipo:           string;
+//     nombre:         string;
+//     marca:          string;
+//     descripcion:    string;
+//     rutaImg:        string;
+//     precio:         number;
+//     cantidad?:      number;
+//     subtotal?:      number;
+// }
+
 export interface Instrument {
-    id:             number;
-    tipo:           string;
-    nombre:         string;
+    id?:             number;
     marca:          string;
-    descripcion:    string;
-    rutaImg:        string;
+    modelo:         string;
+    descripcion?:    string;
     precio:         number;
-    cantidad?:      number;
-    subtotal?:      number;
+    tipoProductoId: number;
+    imagen?:         string;
 }
 
 export interface Preguntas {
     id?:              number;
-    respuestas?:      Respuestas[];
     textoPregunta:   string;
     tituloPregunta:  string;
     usuarioPregunta: string;
@@ -40,10 +49,11 @@ export interface Respuestas {
 //     contenido:      string;
 // }
 
-// export interface Carrito {
-//     instrument:     Instrument;
-//     cantidad?:      number;
-// }
+export interface ItemCarrito {
+    instrument:      Instrument;
+    cantidad?:       number;
+    total?:          number;
+}
 
 // export interface Guitar {
 //     id:             number;

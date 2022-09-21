@@ -9,11 +9,16 @@ import { Instrument } from '../../../interfaces/instruments.interface';
   ]
 })
 export class BajosComponent implements OnInit {
+  
+  public bajoArray: Instrument[] = [];
 
   constructor(private insService: InstrumentService) { }
 
   ngOnInit(): void {
+    this.insService.getProductos()
+      .subscribe( prod => {
+        this.bajoArray = prod.filter( b => b.tipoProductoId == 3 )
+      })
   }
 
-  public bajoArray: Instrument[] = this.insService.bajos
 }

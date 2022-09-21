@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './pages/login/login.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { MaterialModule } from '../material/material.module';
 import { GuitarrasComponent } from './pages/instruments/guitarras/guitarras.component';
@@ -21,7 +20,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
-    LoginComponent,
     WelcomeComponent,
     GuitarrasComponent,
     InstrumentCardComponent,

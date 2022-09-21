@@ -10,11 +10,15 @@ import { Instrument } from '../../../interfaces/instruments.interface';
 })
 export class AmplisComponent implements OnInit {
 
+  public ampliArray: Instrument[] = []
+
   constructor(private insService: InstrumentService) { }
 
   ngOnInit(): void {
+    this.insService.getProductos()
+      .subscribe( prod => {
+        this.ampliArray = prod.filter( a => a.tipoProductoId == 2)
+      })
   }
-
-  public ampliArray: Instrument[] = this.insService.amplificadores
 
 }

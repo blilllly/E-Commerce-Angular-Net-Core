@@ -7,10 +7,10 @@
             <div *ngFor="let item of items" class="col">
               <mat-card class="example-card rounded">
                 <mat-card-header>
-                  <mat-card-title>{{ item.nombre }}</mat-card-title>
+                  <mat-card-title>{{ item.modelo }}</mat-card-title>
                   <mat-card-subtitle>{{ item.marca }}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image [src]="item.rutaImg | imgPipe" width="100%" height="225" alt="">
+                <img mat-card-image [src]="item.imagen" width="100%" height="225" alt="">
                 <mat-card-content>
                   <strong>Precio: </strong> $ {{ item.precio | number: '1.2-2' }}<hr>
                   <strong>Descripción: </strong> <p>{{ item.descripcion }}</p><hr>

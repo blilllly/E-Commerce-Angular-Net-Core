@@ -12,7 +12,10 @@
     </ul>
 
     <div class="col-md-3 text-end">
-        <button mat-raised-button (click)="abrirLogin()" color="primary">Login</button>
-        <button mat-raised-button (click)="abrirCarrito()" color="warn">Carrito</button>
+        <button *ngIf="!ls.getItem('token'); else nombre" class="btn btn-primary" [routerLink]="['/auth/login']">Login</button>
+        <ng-template #nombre><button class="btn btn-primary" (click)="navegar()">{{ls.getItem('nombre')}}</button></ng-template>
+        
+        <button class="btn btn-danger" (click)="abrirCarrito()">Carrito</button>
+        <button *ngIf="ls.getItem('token')" class="btn btn-warning" (click)="logout()">Logout</button>
     </div>
 </header>

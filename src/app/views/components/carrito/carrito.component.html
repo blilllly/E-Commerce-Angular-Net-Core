@@ -16,7 +16,7 @@
               mat-mini-fab
               class="mini"
               color="warn"
-              (click)="quitarCarrito(element.id)">
+              (click)="quitarCarrito(element.instrument.id)">
               <mat-icon>remove</mat-icon>
             </button>
           </td>
@@ -26,28 +26,28 @@
         <!-- Tipo Column -->
         <ng-container matColumnDef="tipo">
             <th mat-header-cell *matHeaderCellDef><h2>Tipo</h2></th>
-            <td mat-cell *matCellDef="let element"><h3> {{element.tipo}} </h3></td>
+            <td mat-cell *matCellDef="let element"><h3> {{element.instrument.tipoProductoId}} </h3></td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
 
         <!-- Nombre Column -->
-        <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef><h2>Nombre</h2></th>
-          <td mat-cell *matCellDef="let element"><h3> {{element.nombre}} </h3></td>
+        <ng-container matColumnDef="modelo">
+          <th mat-header-cell *matHeaderCellDef><h2>Modelo</h2></th>
+          <td mat-cell *matCellDef="let element"><h3> {{element.instrument.modelo}} </h3></td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
       
         <!-- Marca Column -->
         <ng-container matColumnDef="marca">
           <th mat-header-cell *matHeaderCellDef><h2>Marca</h2></th>
-          <td mat-cell *matCellDef="let element"><h3> {{element.marca}} </h3></td>
+          <td mat-cell *matCellDef="let element"><h3> {{element.instrument.marca}} </h3></td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
       
         <!-- Precio Column -->
         <ng-container matColumnDef="precio">
           <th mat-header-cell *matHeaderCellDef><h2>Precio</h2></th>
-          <td mat-cell *matCellDef="let element"><h3> {{element.precio | currency }} </h3></td>
+          <td mat-cell *matCellDef="let element"><h3> {{element.instrument.precio | currency }} </h3></td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
       
@@ -57,9 +57,9 @@
           <td mat-cell *matCellDef="let element">
             <h3>
               <div class="centar">
-                <button class="btn btn-primary" (click)="menos(element.id)">-</button>
+                <button class="btn btn-primary" (click)="menos(element.instrument.id)">-</button>
                 <input matInput type="number" value="{{element.cantidad}}" readonly="true">
-                <button class="btn btn-primary" (click)="mas(element.id)">+</button>
+                <button class="btn btn-primary" (click)="mas(element.instrument.id)">+</button>
               </div>
             </h3>
           </td>
@@ -69,7 +69,7 @@
         <!-- Total Column -->
         <ng-container matColumnDef="total">
           <th mat-header-cell *matHeaderCellDef><h2>Total</h2></th>
-          <td mat-cell *matCellDef="let element"><h3> {{element.subtotal | currency}} </h3></td>
+          <td mat-cell *matCellDef="let element"><h3> {{element.total | currency}} </h3></td>
           <td mat-footer-cell *matFooterCellDef><h2> {{getTotal() | currency}} </h2></td>
         </ng-container>
       

@@ -1,0 +1,21 @@
+<div class="container">
+
+    <form [formGroup]="logForm" class="row g-3 ml-5 mr-5">
+
+        <div class="col-12">
+            <label for="ipEmail" class="form-label">Email</label>
+            <input formControlName="email" type="email" class="form-control" id="ipEmail">
+        </div>
+
+        <div class="col-12">
+        <label for="Pass1" class="form-label">Contraseña</label>
+        <input formControlName="password" type="password" class="form-control" id="Pass1">
+        </div>
+        
+        <div class="col-12 text-center">
+            <button (click)="login()" class="btn btn-primary" [disabled]="!logForm.valid">Login</button>
+            <a class="btn btn-info" [routerLink]="[ '../registro' ]">Registrarse</a>
+        </div>
+    </form>
+
+</div>

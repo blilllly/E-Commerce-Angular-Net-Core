@@ -15,13 +15,13 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['spr', 'tipo','nombre', 'marca', 'precio', 'cantidad', 'total'];
+  displayedColumns: string[] = ['spr', 'tipo','modelo', 'marca', 'precio', 'cantidad', 'total'];
   dataSource = this.carService.carrito;
 
   @ViewChild(MatTable) table!: MatTable<Instrument>;
 
   getTotal() {
-    return this.carService.carrito.map(c => c.subtotal!).reduce((acc, value)=> acc + value, 0)
+    return this.carService.carrito.map(c => c.total!).reduce((acc, value)=> acc + value, 0)
   }
 
   quitarCarrito(id: number){

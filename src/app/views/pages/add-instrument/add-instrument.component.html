@@ -1,31 +1,39 @@
-<form [formGroup]="instrument" class="editar row g-3">
-
-    <select formControlName="tipo" class="form-select">
-        <option value="guitarra">Guitarra</option>
-        <option value="amplificador">Amplificador</option>
-        <option value="bajo">Bajo</option>
-        <option value="microfono">Micrófono</option>
-    </select>
+<form [formGroup]="instrument" class="editar row g-3" autocomplete="off">
 
     <div class="input-group">
-        <input type="file" (change)="rutaTemp($event)" class="form-control" formControlName="rutaImg" accept="image/png, image/jpeg, image/jpg">
+        <span class="input-group-text">Tipo</span>
+        <select formControlName="tipoProductoId" class="form-select">
+            <option value=1>Guitarra</option>
+            <option value=2>Amplificador</option>
+            <option value=3>Bajo</option>
+            <option value=4>Micrófono</option>
+        </select>
     </div>
 
+    <!-- <div class="input-group">
+        <input type="file" (change)="rutaTemp($event)" class="form-control" formControlName="rutaImg" accept="image/png, image/jpeg, image/jpg">
+    </div> -->
+
     <div class="input-group">
+        <span class="input-group-text">Imagen Url</span>
+        <input type="text" class="form-control" formControlName="imagen">
+    </div>
+
+    <!-- <div class="input-group">
         <span class="input-group-text">Id</span>
         <input type="number" class="form-control" formControlName="id" placeholder="0">
-    </div>
+    </div> -->
 
     <div class="input-group">
         <span class="input-group-text">Marca</span>
         <input type="text" class="form-control" formControlName="marca" placeholder="Marca">
-        <span class="input-group-text">Nombre</span>
-        <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+        <span class="input-group-text">Modelo</span>
+        <input type="text" formControlName="modelo" class="form-control" placeholder="Modelo">
     </div>
 
     <div class="input-group">
         <span class="input-group-text">Descripción</span>
-        <textarea class="form-control" formControlName="descripcion" rows="3" maxlength="150"></textarea>
+        <textarea class="form-control" formControlName="descripcion" rows="3" maxlength="300"></textarea>
     </div>
 
     <div class="input-group">
@@ -41,4 +49,20 @@
 
 </form>
 
-<img src="" alt="" id="img1">
+<div class="row">
+    <div class="row">
+
+        <span>Valid</span>
+        <pre>{{ instrument.valid | json }}</pre>
+
+        <span>Prisitne</span>
+        <pre>{{ instrument.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ instrument.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ instrument.value | json }}</pre>
+
+    </div>
+</div>

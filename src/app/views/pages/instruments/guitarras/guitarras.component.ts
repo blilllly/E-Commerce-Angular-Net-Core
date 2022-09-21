@@ -8,12 +8,16 @@ import { InstrumentService } from '../../../services/instrument.service';
   styleUrls: ['./guitarras.component.css']
 })
 export class GuitarrasComponent implements OnInit {
+  
+  guitarArray: Instrument[] = [];
 
   constructor(private insService: InstrumentService) { }
 
   ngOnInit(): void {
+    this.insService.getProductos()
+      .subscribe( prod => {
+        this.guitarArray = prod.filter( g => g.tipoProductoId == 1 )
+      })
   }
-
-  public guitarArray: Instrument[] = this.insService.guitarras;
 
 }

@@ -10,11 +10,15 @@ import { Instrument } from '../../../interfaces/instruments.interface';
 })
 export class MicrosComponent implements OnInit {
 
+  public microArray: Instrument[] = [];
+
   constructor(private insService: InstrumentService) { }
 
   ngOnInit(): void {
+    this.insService.getProductos()
+      .subscribe( prod => {
+        this.microArray = prod.filter( m => m.tipoProductoId == 4 )
+      })
   }
-
-  public microArray: Instrument[] = this.insService.micros
 
 }

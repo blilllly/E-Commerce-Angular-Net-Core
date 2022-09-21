@@ -1,0 +1,56 @@
+<div class="container">
+
+    <form [formGroup]="registro" class="row g-3" autocomplete="off">
+
+        <div class="col-md-6">
+            <label for="ipNombre" class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" id="ipNombre">
+        </div>
+
+        <div class="col-md-6">
+            <label for="ipApellidos" class="form-label">Apellidos</label>
+            <input formControlName="apellidos" type="text" class="form-control" id="ipApellidos">
+        </div>
+        <div class="col-12">
+            <label for="ipEmail" class="form-label">Email</label>
+            <input formControlName="email" type="email" class="form-control" id="ipEmail">
+        </div>
+
+        <div class="row g-3" formGroupName="passwords">
+
+            <div class="col-md-6">
+            <label for="Passw1" class="form-label">Contraseña</label>
+            <input formControlName="pass1" type="password" class="form-control" id="Passw1">
+            </div>
+    
+            <div class="col-md-6">
+                <label for="Passw2" class="form-label">Confirmar Contraseña</label>
+                <input formControlName="pass2" type="password" class="form-control" id="Passw2">
+            </div>
+
+        </div>
+        
+        <div class="col-12 text-center">
+            <button (click)="registrarse()" type="button" class="btn btn-primary" [disabled]="!registro.valid">Registrarse</button>
+        </div>
+    </form>
+
+</div>
+
+<div class="row">
+    <div class="row">
+
+        <span>Valid</span>
+        <pre>{{ registro.valid | json }}</pre>
+
+        <span>Prisitne</span>
+        <pre>{{ registro.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ registro.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ registro.value | json }}</pre>
+
+    </div>
+</div>
